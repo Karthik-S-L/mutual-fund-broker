@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List, Dict
-from datetime import date
+from datetime import datetime  
 
 class Fund(BaseModel):
     scheme_code: int
@@ -8,7 +8,7 @@ class Fund(BaseModel):
     isin_div_reinvestment: str | None = None
     scheme_name: str
     net_asset_value: float
-    date: date
+    date: datetime  
     scheme_type: str
     scheme_category: str
     mutual_fund_family: str

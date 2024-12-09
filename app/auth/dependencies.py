@@ -72,7 +72,7 @@ def get_current_user(request: Request):
         )
 
     # Fetch the user from the database
-    user = db["users"].find_one({"email": email})
+    user =  db["users"].find_one({"email": email})
     print(f"Fetched user: {user}")
     if user is None:
         raise HTTPException(
