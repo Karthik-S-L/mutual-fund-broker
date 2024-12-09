@@ -1,0 +1,112 @@
+{
+    "info": {
+      "name": "Mutual Fund API",
+      "description": "Postman collection for testing the Mutual Fund FastAPI project",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Register User",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"password\": \"password123\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/users/register",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["users", "register"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Login User",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"password\": \"password123\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/users/login",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["users", "login"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Fund Families",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8000/funds/families",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["funds", "families"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Schemes by Fund Family",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8000/funds/schemes?family=ExampleFamily",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["funds", "schemes"],
+            "query": [
+              {
+                "key": "family",
+                "value": "ExampleFamily"
+              }
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "View Portfolio",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer <your-access-token>"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8000/portfolio",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["portfolio"]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  
