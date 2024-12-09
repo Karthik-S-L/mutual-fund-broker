@@ -22,10 +22,11 @@ async def login(user: UserLogin, response:Response):
     db_user = db.users.find_one({"email": user.email})
     if not db_user or not verify_password(user.password, db_user["hashed_password"]):
         raise HTTPException(status_code=401, detail="Invalid credentials")
+    print(db_user)
 
     # Create access and refresh tokens
-    access_token = create_access_token({"sub": user.email})
-    refresh_token = create_refresh_token({"sub": user.email})
+    access_token = create_access_token({"sub": user.email,"id": str(db_user["_id"])})
+    refresh_token = create_refresh_token({"sub": user.email,"id": str(db_user["_id"])})
 
     # Store the refresh token in the database
     db.users.update_one({"email": user.email}, {"$set": {"refresh_token": refresh_token}})
@@ -34,13 +35,12 @@ async def login(user: UserLogin, response:Response):
     response.set_cookie(
         key="access_token",
         value=access_token,
-        max_age=timedelta(hours=1),  # set an expiration time as per your requirements
+        max_age=timedelta(hours=1), 
         httponly=True,  # This ensures the cookie is not accessible via JavaScript
         secure=True,  # Use secure cookies (only over HTTPS)
         samesite="Strict"  # Helps prevent CSRF attacks
     )
     
-    # You can also send the refresh token in response body or store it in cookies if needed
     return {"refresh_token": refresh_token}
 
 @router.get("/me",)
