@@ -39,10 +39,6 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def get_current_user(request: Request):
     logger.info("Inside get_current_user")
-    
-
-    # Log all cookies for debugging
-    print(f"Cookies: {request.cookies}")
     access_token = request.cookies.get("access_token")
     if not access_token:
         print("Access token not found")
@@ -56,7 +52,6 @@ def get_current_user(request: Request):
         # Decode the JWT token
         payload = jwt.decode(access_token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
         email: str = payload.get("sub")
-        print(f"Decoded payload: {payload}")
         if email is None:
             raise HTTPException(
                 status_code=401,
@@ -73,7 +68,6 @@ def get_current_user(request: Request):
 
     # Fetch the user from the database
     user =  db["users"].find_one({"email": email})
-    print(f"Fetched user: {user}")
     if user is None:
         raise HTTPException(
             status_code=401,

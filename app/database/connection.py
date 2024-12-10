@@ -4,10 +4,6 @@ from app.utils.logger import logger
 
 from motor.motor_asyncio import AsyncIOMotorClient
 
-# Make sure you're using the correct async client (motor)
-# client = AsyncIOMotorClient(settings.MONGO_URI)
-# db = client[settings.DATABASE_NAME]
-
 client = MongoClient(settings.MONGO_URI)
 db = client[settings.DATABASE_NAME]
 

@@ -288,7 +288,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"email\": \"testuserrew3@example.com\",\n  \"password\": \"password123\"\n}"
+							"raw": "{\n  \"email\": \"testuserre4@example.com\",\n  \"password\": \"password123\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8000/auth/register",
