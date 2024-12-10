@@ -6,3 +6,5 @@ app = FastAPI()
 
 app.include_router(auth_router, prefix="/auth", tags=["Authentication"])
 app.include_router(portfolio_router, prefix="/portfolio", tags=["Portfolio"])
+
+
