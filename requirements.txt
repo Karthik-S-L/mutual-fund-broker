@@ -4,3 +4,7 @@ pymongo
 python-jose
 passlib[bcrypt]
 python-dotenv
+pydantic-settings
+motor
+pydantic[email]
+httpx

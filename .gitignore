@@ -165,3 +165,11 @@ cython_debug/
 *.log
 docker-compose.override.yml
 .dockerignore
+
+# MongoDB database files
+# Ignore MongoDB data directory
+data/db/
+data/db/*
+/data/db
+data/db/journal/
+data/db/diagnostic.data/

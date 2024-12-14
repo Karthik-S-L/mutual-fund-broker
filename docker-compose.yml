@@ -13,7 +13,7 @@ services:
       - mongo
 
   mongo:
-    image: mongo:latest
+    image: mongo:5.0
     volumes:
       - ./data/db:/data/db
     ports:
