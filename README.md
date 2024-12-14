@@ -42,4 +42,4 @@ After the container is up and running, you should be able to access your FastAPI
 
 Use postman collection provided within app/documentation
 
-[optional : you can also install the dependencies locally and run using uvicorn app.main:app --reload]
+[optional : you can also install the dependencies locally and run using uvicorn app.main:app --reload].
